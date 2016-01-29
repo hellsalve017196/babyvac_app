@@ -1,0 +1,11 @@
+<ion-view view-title="Disease List" cache-view="false">
+  <ion-content>
+
+    <ion-list can-swipe="false" show-delete="false">
+      <ion-item ng-repeat="disease in disease_list" ui-sref="arena.disease_details({ 'd_name' : '{{ disease['d_name'] }}' , 'd_des' : '{{ disease['d_des'] }}' , 'covered_by' : '{{ disease['i_name'] }}'})">
+        {{ disease['d_name'] }}
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

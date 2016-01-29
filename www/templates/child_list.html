@@ -1,0 +1,34 @@
+<ion-view view-title="Child List" cache-view="false" ng-init="getting_child_list()">
+  <ion-content>
+
+    <div ng-if="!have_child" ng-style="{ 'color' : 'red' }">
+      <h3 class="text-center">Currently There are no child added</h3>
+    </div>
+    <br>
+    <ion-list ng-if="have_child" can-swipe="false" show-delete="false" class="item-thumbnail-left">
+      <ion-item ng-repeat="child in child_list" ng-click="optiondisplay(child)">
+          <img src="{{ child.c_id | picFilter }}" ng-style="{ 'border-radius' : '40px' }" width="70" height="70"/> Name:<strong>{{  child.c_name  }}</strong>
+          <p ng-style="{'color' : 'orange'}">Age: {{ child.c_dob * 1000 | ageFilter}}</p>
+          <p ng-style="{'color' : 'green'}">Gender: {{ child.c_gender }}</p>
+          <p ng-style="{'color' : 'red'}">Pending Vaccine:{{ child.pending }}</p>
+        <!--<ion-option-button class="button-balanced icon ion-wrench" ui-sref="arena.child_edit({'c_id':'{{ child.c_id }}','c_name':'{{ child.c_name }}','c_dob':'{{ child.c_dob }}'})"></ion-option-button>
+        <ion-option-button class="button-assertive icon ion-trash-a" ng-click="child_delete('{{ child.c_id }}')"></ion-option-button>-->
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+  <!--
+ floating button starts
+ -->
+  <div class="float-button">
+  <span class="height-fix">
+      <a class="content" ui-sref="arena.child_add">
+        <i class="ion-ios-plus-empty"> </i>
+      </a>
+    </span>
+  </div>
+  <!--
+  floating button ends
+  -->
+</ion-view>

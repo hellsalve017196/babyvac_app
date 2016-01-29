@@ -1,0 +1,29 @@
+<ion-view view-title="{{ c_name }}"  cache-view="false">
+  <ion-content>
+    <div ng-if="!have_history" ng-style="{ 'color' : 'red' }">
+      <h2 class="text-center">Currently There are no Immunization History</h2>
+    </div>
+    <ion-list ng-if="have_history" can-swipe="false" show-delete="false">
+      <ion-item ng-repeat="immune in immune_history" ng-click="optiondisplay(immune)">
+        {{  immune.c_i_date * 1000 | date:'dd-MM-yyyy'  }},<p ng-style="{'color' : 'red'}">Immunization Type:{{ immune.c_i_type }}</p>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+
+
+  <!--
+  floating button starts
+  -->
+  <div class="float-button">
+  <span class="height-fix">
+      <a class="content" ui-sref="arena.immuni_add">
+        <i class="ion-ios-plus-empty"> </i>
+      </a>
+    </span>
+  </div>
+  <!--
+  floating button ends
+  -->
+
+</ion-view>

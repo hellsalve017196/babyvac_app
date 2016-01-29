@@ -1,0 +1,53 @@
+<ion-view view-title="Edit Profile" cache-view="false">
+  <ion-content>
+    <form  name="faleComigoForm" class="falecomigo" novalidate form-manager>
+      <div class="list list-inset" >
+
+        <div class="item item-input">
+          <input ng-model="message.p_name" name="fullname" type="text" ng-pattern="/[a-zA-z]+([ '-][a-zA-Z]+)*/" placeholder="Full Name"  required ng-minlength="2">
+          <button ng-if="fullname_flag" ng-click="show_error(faleComigoForm.fullname.$error,1)" class="button button-assertive icon ion-alert"></button>
+        </div>
+
+        <div class="item item-input">
+          <input ng-model="message.p_phone" name="phone" type="text" placeholder="Phone" >
+        </div>
+
+        <div class="item item-input" ng-style="{'display' : 'none'}">
+          <input ng-model="message.u_email" name="email"  type="email" ng-pattern="/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/" placeholder="E-mail" required>
+          <button ng-if="email_flag" ng-click="show_error(faleComigoForm.email.$error,0)" class="button button-assertive icon ion-alert"></button>
+        </div>
+
+        <label class="item item-input item-select">
+          Gender:
+          <select ng-model="message.p_gender" name="p_gender"  required>
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
+        </label>
+
+        <div class="item item-input">
+          <input ng-model="message.p_address" name="address" type="text"  placeholder="Address">
+        </div>
+
+        <div class="item item-input">
+          <input ng-model="message.p_region" name="region" type="text"  placeholder="Region" required>
+        </div>
+
+      </div>
+    </form>
+
+    <div class="padding container">
+      <div class="row">
+        <button ng-click="final_submittion(message,faleComigoForm)" ng-if="!readOnly" class="button button-positive  button-small col col-80 col-offset-10"> Update Profile </button>
+      </div>
+    </div>
+  </ion-content>
+
+  <div class="float-button">
+  <span class="height-fix">
+      <a class="content" ng-click="readorwrite()">
+        <i class="ion-edit"> </i>
+      </a>
+    </span>
+  </div>
+</ion-view>

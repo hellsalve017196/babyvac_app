@@ -1,0 +1,26 @@
+<ion-modal-view cache-view="false">
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">{{ child.c_name }}</h1>
+    <button class="button button-clear button-primary icon ion-close" ng-click="modal.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-click="editing_child(child)">
+        <i class="icon ion-wrench"></i>
+         Editing Childinfo
+      </ion-item>
+      <ion-item ng-click="immune_details(child)">
+        <i class="icon ion-android-bulb"></i>
+         Immunization Details
+      </ion-item>
+      <ion-item ng-click="toggole_notification(child)">
+        <i class="icon ion-android-alarm-clock"></i>
+         Local Notification Setting
+      </ion-item>
+      <ion-item ng-click="child_delete(child.c_id)">
+        <i class="icon ion-trash-a"></i>
+         Delete Child
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-modal-view>

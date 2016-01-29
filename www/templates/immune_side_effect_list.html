@@ -1,0 +1,12 @@
+<ion-view view-title="Immune Side Effect" cache-view="false">
+  <ion-content>
+
+    <ion-list can-swipe="false" show-delete="false">
+
+      <ion-item ng-repeat="immune in immune_list" ui-sref="arena.immuni_side_effect_details({ 'i_name' : '{{ immune['i_name'] }}' })">
+        {{ immune['i_name'] }}
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+</ion-view>
